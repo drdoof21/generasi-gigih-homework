@@ -5,10 +5,11 @@ import '../../App.css';
 const Home = () => {
     const rows = [];
     let numb = 0;
-    data.map((product) => {
+    data.forEach((product) => {
         numb += 1;
         rows.push(
-            <Song coba={product.id} key={product.id} number={numb} url={product.album.images[0].url} album={product.album.name} track={product.name} artistName={product.artists[0].name} />
+            <Song key={product.id} number={numb} url={product.album.images[0].url} album={product.album.name} track={product.name}
+             artistName={product.artists[0].name} artisturl={product.artists[0].external_urls.spotify} albumurl={product.album.external_urls.spotify}/>
         );
     });
     
@@ -18,7 +19,7 @@ const Home = () => {
             <table className="tbl">
                 <thead className="tbhead">
                     <tr>
-                        <td>#</td>
+                        <td className="numberhead">#</td>
                         <td>TITLE</td>
                         <td></td>
                         <td>ALBUM</td>
