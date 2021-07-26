@@ -72,6 +72,19 @@
   font-family: 'proxima_nova_rgbold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.divsearch {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.searchInput {
+  border-radius: 5px;
+}
+
+.searchBtn {
+  border-radius: 5px;
+}
+
 .cardimg {
   width: 50px;
   height: 50px;
@@ -166,6 +179,21 @@
 
 .numberhead {
   text-align: center;
+}
+
+.selectBtn {
+  background-color: #181818;
+  color: white;
+  border: grey solid 1px;
+  border-radius: 25px;
+  width: 100px;
+  height: 40px;
+  transition: transform .2s;
+}
+
+.selectBtn:hover {
+  transform: scale(1.1);
+  border: white solid 1px;
 }
 
 .songcount {

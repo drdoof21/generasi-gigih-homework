@@ -1,9 +1,11 @@
 const Searchbar = ({handleSearch, getText}) => {
     return (
-        <form onSubmit={getText}>
-            <input type="text" onChange={handleSearch}/>
-            <button type="submit">Search</button>
-        </form>        
+        <div className="divsearch">
+            <form onSubmit={getText}>
+            <input className="searchInput" type="text" onChange={handleSearch}/>
+            <button className="searchBtn" type="submit">Search</button>
+        </form>    
+        </div>    
     )
 }
 

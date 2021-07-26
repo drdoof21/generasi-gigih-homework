@@ -14,6 +14,7 @@ const Home = () => {
     const [token, setToken] = useState('');
     const [search, setSearch] = useState('');
     const [result, setResult] = useState([]);
+    const [uri, setUri] = useState([]);
 
     const getAccess = () => {
         const params = window.location.hash.substring(1);
@@ -38,6 +39,16 @@ const Home = () => {
     const handleSearch = (e) => {
         setSearch(e.target.value)
     }
+
+    const handleSelect = (songUri) => {
+        if(uri.includes(songUri)){
+            const filterred = uri.filter(item => item !== songUri);
+            setUri(filterred);
+
+        }else {
+            setUri([...uri, songUri]);
+        }
+    }
     
     return (
         <div>
@@ -46,15 +57,30 @@ const Home = () => {
                   url={"https://accounts.spotify.com/authorize?client_id=" + clientID + "&response_type=token&scope=playlist-modify-private&redirect_uri=http:%2F%2Flocalhost:3000%2F"}/>
                 : (<> 
                 <Searchbar handleSearch={handleSearch} getText={getText}/>
-                {result
-                 .map(product => (
-                     <Song key={product.id} url={product.album.images[0].url} album={product.album.name}
-                     track={product.name} artistName={product.artists[0].name}
-                     artisturl={product.artists[0].external_urls.spotify} 
-                     albumurl={product.album.external_urls.spotify}
-                     />
-                 ))
-                }
+                <table className="tbl">
+                    <thead className="tbhead">
+                        <tr>
+                            <td className="numberhead">#</td>
+                            <td>TITLE</td>
+                            <td></td>
+                            <td>ALBUM</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {result
+                            .map(product => (
+                                <Song key={product.id} number={numb+=1} url={product.album.images[0].url} album={product.album.name}
+                                track={product.name} artistName={product.artists[0].name}
+                                artisturl={product.artists[0].external_urls.spotify} 
+                                albumurl={product.album.external_urls.spotify}
+                                handleSelect={() => handleSelect(product.uri)}
+                                isSelected={uri.includes(product.uri)}
+                                />
+                            ))
+                        }
+                    </tbody>
+                </table>
                 </>)
                 }
             
