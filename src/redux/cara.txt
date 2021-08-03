@@ -1,0 +1,9 @@
+1. buat store sederhana
+2. -ke src/index.js, import storenya & import {provider} dari react-redux
+   -wrap component nya pake provider dgn prop store={namastore}
+3. Buat reducer dgn slice
+4. import reducer di store
+5. -buat file UI, import useSelector, useDispatch dari react-redux
+   -import action yg ada di reducer tadi
+   -buat variabel buat useSelector sama useDispatch
+   -buat button buat dispatch action

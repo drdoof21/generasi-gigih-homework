@@ -1,6 +1,6 @@
 import '../../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Card} from 'react-bootstrap';
+// import {Card} from 'react-bootstrap';
 
 const Song = ({number,url,album,track,artistName, artisturl, albumurl, handleSelect, isSelected}) => {
         return(
